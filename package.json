@@ -1,0 +1,32 @@
+{
+  "name": "galactic-energy-bazaar-api",
+  "version": "1.0.0",
+  "description": "Api to serve information to the galactic energy bazaar platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "dotenvx run -f .env.production -- node dist/server.js",
+    "dev": "dotenvx run -f .env -- nodemon src/server.ts --exec ts-node"
+  },
+  "keywords": [
+    "NodeJS",
+    "ExpressJS"
+  ],
+  "author": "@samdofe",
+  "license": "ISC",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.33.0",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.6",
+    "@types/socket.io": "^3.0.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
