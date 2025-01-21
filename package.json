@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "dotenvx run -f .env.production -- node dist/server.js",
-    "dev": "dotenvx run -f .env -- nodemon src/server.ts --exec ts-node"
+    "dev": "dotenvx run -f .env.development -- nodemon src/server.ts --exec ts-node"
   },
   "keywords": [
     "NodeJS",
