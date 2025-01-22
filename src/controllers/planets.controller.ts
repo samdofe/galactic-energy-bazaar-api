@@ -15,7 +15,10 @@ export const getPlanetById = async (req: Request, res: Response) => {
     const {planetId } = req.params;
     try{
         const planet = await Planet.find({planetId});
-        if (!planet) res.status(404).json(formatErrorMessage(`Planet ${planetId} not found!`));
+        if (!planet) {
+            res.status(404).json(formatErrorMessage(`Planet ${planetId} not found!`));
+            return;
+        }
         res.json(planet);
     }catch(error){
         res.status(500).json(formatErrorMessage(`Failed to fetch planet ${planetId}`, error));
@@ -37,7 +40,10 @@ export const updatePlanet = async (req: Request, res: Response) => {
             body,   // Update with the provided data
             { new: true } // Return the updated document
         );
-        if (!updatedPlanet) res.status(404).json(formatErrorMessage(`Planet ${planetId} not found!`));
+        if (!updatedPlanet) {
+            res.status(404).json(formatErrorMessage(`Planet ${planetId} not found!`));
+            return;
+        }
         res.json(updatedPlanet);
     }catch(error){
         res.status(500).json(formatErrorMessage(`Failed to update planet ${planetId}`, error));

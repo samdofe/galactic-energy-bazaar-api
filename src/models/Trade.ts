@@ -4,6 +4,7 @@ export interface ITrade extends Document {
     tradeId: string;
     planetId: string;
     traderId: string;
+    type: string; // Added 'type' field
     status: string;
     tradeDate: Date;
     zetaJoules: number;
@@ -13,11 +14,13 @@ export interface ITrade extends Document {
     updatedAt: Date;
 }
 
-const TradeSchema: Schema = new Schema<ITrade>({
+const TradeSchema: Schema = new Schema<ITrade>(
+    {
         tradeId: { type: String, required: true, unique: true },
         planetId: { type: String, required: true },
         traderId: { type: String, required: true },
-        status: { type: String, enum: ['Pending', 'Approved', 'Rejected', 'Completed'], required: true },
+        type: { type: String, enum: ['BUY', 'SELL'], required: true }, // Added 'type' field
+        status: { type: String, enum: ['PENDING', 'APPROVED', 'REJECTED', 'COMPLETED'], required: true },
         tradeDate: { type: Date, required: true },
         zetaJoules: { type: Number, required: true },
         pricePerUnit: { type: Number, required: true },
@@ -26,8 +29,9 @@ const TradeSchema: Schema = new Schema<ITrade>({
         updatedAt: { type: Date, default: Date.now },
     },
     {
-        timestamps: true,
-        collection: 'trades'
-    });
+        timestamps: true, // Automatically manage createdAt and updatedAt
+        collection: 'trades',
+    }
+);
 
 export default mongoose.model<ITrade>('Trade', TradeSchema);
