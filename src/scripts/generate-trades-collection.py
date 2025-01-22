@@ -17,6 +17,9 @@ planets = ["ULT01", "ZAR02", "DRA03", "CRY05", "ECL04", "AET06", "NOV07", "JOV08
 # Trade Statuses
 statuses = ["PENDING", "APPROVED", "REJECTED", "COMPLETED"]
 
+# Trade types
+types = ["BUY", "SELL"]
+
 # Function to generate a random date within the last 3 months
 def random_date():
     today = datetime.now()
@@ -37,6 +40,7 @@ for i in range(1, 1001):
         "tradeId": f"TRD{i:04d}",
         "planetId": random.choice(planets),
         "traderId": random.choice(traders),
+        "type": random.choice(types),
         "status": random.choice(statuses),
         "tradeDate": trade_date.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "zetaJoules": zeta_joules,
@@ -54,6 +58,7 @@ file_path = os.path.join(output_dir, "trades_collection.json")
 
 # Save trades to JSON file
 with open(file_path, "w") as file:
-    json.dump(trades, file, indent=4)
+    # Convert datetime objects to ISO format during serialization
+    json.dump(trades, file, indent=4, default=str)
 
 print(f"Trades data saved to {file_path}")

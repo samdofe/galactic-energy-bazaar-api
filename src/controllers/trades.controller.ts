@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import Trade from '../models/Trade';
 import { io } from '../server';
 import {formatErrorMessage} from "../utils/utils";
+import {PipelineStage} from "mongoose";
 
 export const getAllTrades = async (req: Request, res: Response) => {
     const { planetId, traderId, status, startDate, endDate, page = 1, limit = 10 } = req.query;
@@ -53,7 +54,10 @@ export const getTradeById = async (req: Request, res: Response) => {
 
     try {
         const trade = await Trade.find({tradeId});
-        if (!trade) res.status(404).json(formatErrorMessage('Trade not found'));
+        if (!trade) {
+            res.status(404).json(formatErrorMessage('Trade not found'));
+            return;
+        }
 
         res.json(trade);
     } catch (error) {
@@ -82,7 +86,10 @@ export const updateTrade = async (req: Request, res: Response) => {
 
     try {
         const trade = await Trade.findOneAndUpdate({tradeId}, updates, { new: true });
-        if (!trade) res.status(404).json({ error: 'Trade not found' });
+        if (!trade) {
+            res.status(404).json({ error: 'Trade not found' });
+            return;
+        }
 
         io.emit('tradeUpdated', trade);
         res.json(trade);
@@ -96,7 +103,10 @@ export const deleteTrade = async (req: Request, res: Response) => {
 
     try {
         const trade = await Trade.findOneAndDelete({tradeId});
-        if (!trade) res.status(404).json(formatErrorMessage('Trade not found'));
+        if (!trade) {
+            res.status(404).json(formatErrorMessage('Trade not found'));
+            return;
+        }
 
         io.emit('tradeCancel', trade);
         res.json({ message: `Trade with id=${tradeId} canceled`, trade });
@@ -104,3 +114,174 @@ export const deleteTrade = async (req: Request, res: Response) => {
         res.status(500).json(formatErrorMessage('Failed to delete trade', error));
     }
 };
+
+export const getPlanetTradeStats = async (req: Request, res: Response) => {
+    const { dateFrom, dateTo } = req.query;
+
+    try {
+
+        if (!dateFrom || !dateTo) {
+            res.status(400).json(formatErrorMessage('dateFrom and dateTo are required query parameters'));
+            return;
+        }
+        // Parse and log date range
+        const startDate = dateFrom ? new Date(dateFrom as string) : new Date(0);
+        const endDate = dateTo ? new Date(dateTo as string) : new Date();
+        endDate.setHours(23, 59, 59, 999); // Include the full day for dateTo
+
+        console.log('startDate:', startDate);
+        console.log('endDate:', endDate);
+
+        const planetStats = await Trade.aggregate([
+            {
+                $addFields: {
+                    createdAtDate: {
+                        $dateFromString: {
+                            dateString: '$createdAt',
+                            format: '%Y-%m-%dT%H:%M:%SZ', // Adjust the format to match your data
+                        },
+                    },
+                },
+            },
+            {
+                $match: {
+                    createdAtDate: { $gte: startDate, $lte: endDate },
+                },
+            },
+            {
+                $group: {
+                    _id: '$planetId',
+                    buyOrders: {
+                        $sum: {
+                            $cond: [{ $eq: ['$type', 'BUY'] }, 1, 0], // Check for type "buy"
+                        },
+                    },
+                    sellOrders: {
+                        $sum: {
+                            $cond: [{ $eq: ['$type', 'SELL'] }, 1, 0], // Check for type "sell"
+                        },
+                    },
+                    totalVolume: { $sum: '$zetaJoules' },
+                    avgPrice: { $avg: '$pricePerUnit' },
+                },
+            },
+            {
+                $lookup: {
+                    from: 'planets', // Name of the planets collection
+                    localField: '_id', // Field in the trades group (planetId)
+                    foreignField: 'planetId', // Field in the planets collection
+                    as: 'planetInfo', // Output field for the lookup
+                },
+            },
+            {
+                $unwind: '$planetInfo', // Flatten the array resulting from $lookup
+            },
+            {
+                $project: {
+                    planetId: '$_id',
+                    planetName: '$planetInfo.name', // Assuming `name` is the field for planet names
+                    _id: 0,
+                    buyOrders: 1,
+                    sellOrders: 1,
+                    totalVolume: 1,
+                    avgPrice: 1,
+                },
+            },
+            {
+                $sort: { planetName: 1 }, // Sort by planet name in ascending order
+            },
+        ]);
+
+
+        if (!planetStats.length) {
+            console.log('No trades found for the specified date range.');
+        }
+
+        res.json(planetStats);
+    } catch (error) {
+        res.status(500).json(formatErrorMessage('Failed to fetch planet trade stats', error));
+    }
+};
+
+export const getTradeLeaderboards = async (req: Request, res: Response) => {
+    try {
+        // Leaderboard for planets
+        const planetLeaderboard = await Trade.aggregate([
+            {
+                $group: {
+                    _id: '$planetId',
+                    tradeCount: { $count: {} },
+                },
+            },
+            {
+                $lookup: {
+                    from: 'planets', // Name of the planets collection
+                    localField: '_id', // Field in the trades group (planetId)
+                    foreignField: 'planetId', // Field in the planets collection
+                    as: 'planetInfo',
+                },
+            },
+            {
+                $unwind: '$planetInfo', // Flatten the lookup result
+            },
+            {
+                $project: {
+                    planetId: '$_id',
+                    planetName: '$planetInfo.name', // Assuming `name` is the field for planet names
+                    tradeCount: 1,
+                    _id: 0,
+                },
+            },
+            {
+                $sort: { tradeCount: -1 }, // Sort by trade count descending
+            },
+            { $limit: 10 }, // Top 10 planets
+        ]);
+
+        // Leaderboard for traders
+        const traderLeaderboard = await Trade.aggregate([
+            {
+                $group: {
+                    _id: '$traderId',
+                    tradeCount: { $count: {} },
+                },
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: '_id', // Match traderId in trades
+                    foreignField: 'userId', // Match traderId in traders
+                    as: 'userInfo',
+                },
+            },
+            {
+                $unwind: '$userInfo', // Flatten the lookup results
+            },
+            {
+                $project: {
+                    traderId: '$_id',
+                    traderName: '$userInfo.username',
+                    tradeCount: 1,
+                    _id: 0,
+                },
+            },
+            {
+                $sort: { tradeCount: -1 }, // Sort by trade count descending
+            },
+            { $limit: 10 }, // Top 10 traders
+        ]);
+
+        res.json({
+            planetLeaderboard,
+            traderLeaderboard,
+        });
+    } catch (error) {
+        if (error instanceof Error) {
+            res.status(500).json({ error: 'Failed to fetch leaderboards', details: error.message });
+        } else {
+            res.status(500).json({ error: 'Failed to fetch leaderboards', details: 'Unknown error' });
+        }
+    }
+};
+
+

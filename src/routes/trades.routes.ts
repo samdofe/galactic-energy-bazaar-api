@@ -5,11 +5,15 @@ import {
     createTrade,
     updateTrade,
     deleteTrade,
+    getPlanetTradeStats,
+    getTradeLeaderboards
 } from '../controllers/trades.controller';
 
 const router = Router();
 
 router.get('/', getAllTrades);
+router.get('/planetStats', getPlanetTradeStats);
+router.get('/leaderBoards', getTradeLeaderboards);
 router.get('/:tradeId', getTradeById);
 router.post('/', createTrade);
 router.put('/:tradeId', updateTrade);

@@ -1,8 +1,16 @@
-import { Router, Request, Response } from 'express';
- const router = Router();
+import { Router } from 'express';
+import { authenticate, authorize } from '../middleware/auth.middleware';
+import {createUser, deleteUser, getAllUsers, updateUser} from "../controllers/users.controller";
 
- router.get('/getAllUsers', async(req: Request, res: Response) => {
-     res.json([{id:1, name: 'Samuel Documet Ferroni'}, {id:2, name: 'André Documet Ferroni'}])
- });
+const router = Router();
 
- export default router;
+// Get all users (Admin | Council only)
+router.get('/', authenticate, authorize(['admin', 'council']), getAllUsers);
+// Create a new user (Admin | Council only)
+router.post('/', authenticate, authorize(['admin', 'council']), createUser);
+// Update a user
+router.put('/:userId', authenticate, authorize(['admin', 'council']), updateUser);
+// Delete a user
+router.delete('/:userId', authenticate, authorize(['admin', 'council']), deleteUser);
+
+export default router;
