@@ -179,7 +179,16 @@ export const getPlanetTradeStats = async (req: Request, res: Response) => {
             {
                 $project: {
                     planetId: '$_id',
-                    planetName: '$planetInfo.name', // Assuming `name` is the field for planet names
+                    name: '$planetInfo.name',
+                    description: '$planetInfo.description',
+                    language: '$planetInfo.language',
+                    currency: '$planetInfo.currency',
+                    tradeVolume: '$planetInfo.tradeVolume',
+                    riskFactors: '$planetInfo.riskFactors',
+                    averageDailyConsumption: '$planetInfo.averageDailyConsumption',
+                    creditRating: '$planetInfo.creditRating',
+                    createdAt: '$planetInfo.createdAt',
+                    updatedAt: '$planetInfo.updatedAt',
                     _id: 0,
                     buyOrders: 1,
                     sellOrders: 1,
