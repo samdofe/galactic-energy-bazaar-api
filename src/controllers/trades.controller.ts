@@ -235,8 +235,8 @@ export const getTradeLeaderboards = async (req: Request, res: Response) => {
             },
             {
                 $project: {
-                    planetId: '$_id',
-                    planetName: '$planetInfo.name', // Assuming `name` is the field for planet names
+                    id: '$_id',
+                    name: '$planetInfo.name', // Assuming `name` is the field for planet names
                     tradeCount: 1,
                     _id: 0,
                 },
@@ -268,8 +268,8 @@ export const getTradeLeaderboards = async (req: Request, res: Response) => {
             },
             {
                 $project: {
-                    traderId: '$_id',
-                    traderName: '$userInfo.username',
+                    id: '$_id',
+                    name: '$userInfo.username',
                     tradeCount: 1,
                     _id: 0,
                 },
