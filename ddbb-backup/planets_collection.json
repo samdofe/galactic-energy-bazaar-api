@@ -11,6 +11,11 @@
             "SOLAR_FLARE",
             "RESOURCE_SCARCITY"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 300000,
         "creditRating": "AAA",
         "createdAt": "2025-01-10T08:30:00Z",
@@ -28,6 +33,11 @@
             "TIDAL_FLUCTUATION",
             "SEISMIC_ACTIVITY"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 450000,
         "creditRating": "A",
         "createdAt": "2025-01-09T15:00:00Z",
@@ -45,6 +55,11 @@
             "VOLCANIC_ERUPTION",
             "MINING_ACCIDENT"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 380000,
         "creditRating": "A",
         "createdAt": "2025-01-01T11:00:00Z",
@@ -62,6 +77,11 @@
             "SOLAR_STORM",
             "PIRACY"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 150000,
         "creditRating": "AAA",
         "createdAt": "2025-01-03T14:00:00Z",
@@ -79,6 +99,11 @@
             "HARSH_WINTER",
             "GLACIAL_SHIFT"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 320000,
         "creditRating": "AA",
         "createdAt": "2025-01-05T12:00:00Z",
@@ -96,6 +121,11 @@
             "ATMOS_INSTABILITY",
             "SUPPLY_DELAY"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 280000,
         "creditRating": "BBB",
         "createdAt": "2025-01-02T09:00:00Z",
@@ -113,6 +143,11 @@
             "INFRA_UNSTABLE",
             "ECONOMIC_UNCERTAINTY"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg",
+            "nightUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg",
+            "cloudsUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg"
+        },
         "averageDailyConsumption": 410000,
         "creditRating": "A",
         "createdAt": "2025-01-04T10:30:00Z",
@@ -130,6 +165,11 @@
             "SUPPLY_DISRUPTION",
             "ORBIT_UNSTABLE"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 200000,
         "creditRating": "AAA",
         "createdAt": "2025-01-06T14:00:00Z",
@@ -147,6 +187,11 @@
             "AI_MALFUNCTION",
             "CYBER_RISK"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 370000,
         "creditRating": "AA",
         "createdAt": "2025-01-07T16:00:00Z",
@@ -164,6 +209,11 @@
             "IMPORT_DELAY",
             "PIRACY_THREAT"
         ],
+        "images": {
+            "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_neptune.jpg",
+            "nightUrl": "",
+            "cloudsUrl": ""
+        },
         "averageDailyConsumption": 410000,
         "creditRating": "A",
         "createdAt": "2025-01-08T18:00:00Z",
