@@ -1,0 +1,15 @@
+{
+	"LOGIN_APP": {
+		"ACCESS_PORTAL": "Acceso al Portal",
+		"AUTHENTICATING": "Autenticando ...",
+		"EMAIL_ERROR_MESSAGE": "Se requiere un correo electrónico galáctico válido",
+		"EMAIL_LABEL": "Email Espacial",
+		"EMAIL_PLACEHOLDER": "council.member@galaxy.com",
+		"INITIALIZE_ACCESS": "Iniciando Acceso",
+		"NO_CREDENTIALS": "¿Sin credenciales galácticas?",
+		"PASSWORD_ERROR_MESSAGE": "Código de acceso necesario",
+		"PASSWORD_LABEL": "Código de acceso",
+		"PASSWORD_PLACEHOLDER": "Introduzca su código de acceso",
+		"REGISTER_MESSAGE": "Regístrese"
+	}
+}
