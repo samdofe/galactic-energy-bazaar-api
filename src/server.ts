@@ -4,6 +4,7 @@ import cors from 'cors';
 import config from './helpers/config.helper';
 import allRoutes from './routes/index';
 import {generateSocketIO} from "./socketio";
+import "./config/cloudinary";
 import {connectDB} from "./config/db";
 
 connectDB();
