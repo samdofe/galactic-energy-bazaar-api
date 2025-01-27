@@ -5,12 +5,12 @@ import os
 
 # Traders and Planets Data
 traders = [
-    "TraderULT011", "TraderULT012", "TraderZAR021", "TraderZAR022", "TraderDRA031",
-    "TraderDRA032", "TraderCRY051", "TraderCRY052", "TraderECL041", "TraderECL042",
-    "TraderJOV081", "TraderJOV082", "TraderHYP091", "TraderHYP092", "TraderNEB102",
-    "TraderNEB103", "TraderULT013", "TraderZAR023", "TraderDRA033", "TraderCRY053",
-    "TraderECL043", "TraderJOV083", "TraderECL043", "TraderHYP093", "TraderNEB104",
-    "TraderULT014", "TraderZAR024", "TraderDRA034"
+    "TraderULT011", "TraderZAR022", "TraderDRA033", "TraderECL044", "TraderCRY055",
+    "TraderAET066", "TraderNOV077", "TraderJOV088", "TraderHYP099", "TraderNEB1010",
+    "TraderULT0111", "TraderZAR0212", "TraderDRA0313", "TraderECL0414", "TraderCRY0515",
+    "TraderAET0616", "TraderNOV0717", "TraderJOV0818", "TraderHYP0919", "TraderNEB1020",
+    "TraderULT0121", "TraderZAR0222", "TraderDRA0323", "TraderECL0424", "TraderCRY0525",
+    "TraderAET0626", "TraderNOV0727", "samdofe"
 ]
 planets = ["ULT01", "ZAR02", "DRA03", "CRY05", "ECL04", "AET06", "NOV07", "JOV08", "HYP09", "NEB10"]
 
@@ -31,7 +31,7 @@ def random_date():
 trades = []
 for i in range(1, 1001):
     zeta_joules = random.randint(10, 5000)  # Random energy trade amount
-    price_per_unit = round(random.uniform(10, 1000), 2)  # Random price per unit
+    price_per_unit = round(random.uniform(1, 10), 2)  # Random price per unit
     total_price = round(zeta_joules * price_per_unit, 2)  # Total price calculation
     trade_date = random_date()  # Random trade date
 
