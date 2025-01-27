@@ -5,7 +5,7 @@ import fs from 'fs';
 const router = Router();
 
 // Base directory for i18n files
-const i18nBaseDir = path.join(__dirname, '../public/i18n'); // Adjust the path as needed
+const i18nBaseDir = path.join(__dirname, '../../public/i18n'); // Adjust the path as needed
 
 router.get('/:namespace/:locale.json', (req, res) => {
     const { namespace, locale } = req.params;
