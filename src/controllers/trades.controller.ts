@@ -239,6 +239,7 @@ export const getTradeLeaderboards = async (req: Request, res: Response) => {
                 $project: {
                     id: '$_id',
                     name: '$planetInfo.name', // Assuming `name` is the field for planet names
+                    images: '$planetInfo.images',
                     tradeCount: 1,
                     _id: 0,
                 },
@@ -272,6 +273,7 @@ export const getTradeLeaderboards = async (req: Request, res: Response) => {
                 $project: {
                     id: '$_id',
                     name: '$userInfo.username',
+                    images: '$userInfo.images',
                     tradeCount: 1,
                     _id: 0,
                 },
