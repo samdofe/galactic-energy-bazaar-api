@@ -1,7 +1,10 @@
 {
-  "LEADERBOARD": {
-    "PLANETS": "Planets",
-    "TRADERS": "Traders"
+  "DASHBOARD_APP": {
+    "LEADERBOARD": {
+      "PLANETS": "Planets",
+      "TRADERS": "Traders"
+    },
+    "LOCAL_VARIABLE": "LOCAL VARIABLE"
   }
 }
 
