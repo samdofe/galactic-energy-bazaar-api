@@ -1,9 +1,9 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 interface IImages {
-    dayUrl: string;
-    nightUrl?: string;
-    cloudsUrl?: string;
+    base: string;
+    second?: string;
+    third?: string;
 }
 
 interface IPlanet extends Document {
@@ -34,9 +34,9 @@ const PlanetSchema: Schema = new Schema(
         averageDailyConsumption: { type: Number, default: 0 },
         creditRating: { type: String, default: 'AAA' },
         images: {
-            dayUrl: { type: String, required: true }, // Add the nested properties
-            nightUrl: { type: String, default: null },
-            cloudsUrl: { type: String, default: null }
+            base: { type: String, required: true }, // Add the nested properties
+            second: { type: String, default: null },
+            third: { type: String, default: null }
         },
         color: { type: String, required: true }
     },

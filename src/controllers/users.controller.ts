@@ -1,7 +1,8 @@
 import { User } from "../models/User"
 import type { Request, Response } from "express"
-import { formatErrorMessage } from "../utils/utils"
+import {formatErrorMessage, validatePassword} from "../utils/utils"
 import cloudinary from "../config/cloudinary"
+import bcrypt from "bcrypt";
 
 export const getAllUsers = async (req: Request, res: Response) => {
     try {
@@ -16,6 +17,22 @@ export const createUser = async (req: Request, res: Response) => {
     try {
         const { userId, username, email, password, role, planetId } = req.body
         let imageUrl = ""
+        // Check if userId, username, or email are already taken
+        const existingUser = await User.findOne({
+            $or: [{ userId }, { username }, { email }],
+        });
+
+        if (existingUser) {
+            let message = `The following fields are already taken: ${existingUser.username === username ? 'username ' : ''} ${existingUser.email === email ? 'email' : ''}`;
+            res.status(400).json(formatErrorMessage(message));
+            return;
+        }
+
+        // Validate password
+        if (!validatePassword(password)) {
+            res.status(400).json(formatErrorMessage('Password must include at least one uppercase letter, one number, and one string.'));
+            return;
+        }
 
         if (req.file) {
             const result = await cloudinary.uploader.upload(req.file.path, {
@@ -25,11 +42,12 @@ export const createUser = async (req: Request, res: Response) => {
             imageUrl = result.secure_url
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({
             userId,
             username,
             email,
-            password,
+            password: hashedPassword,
             role,
             planetId,
             images: {

@@ -16,7 +16,7 @@ planets_data =[
           "RESOURCE_SCARCITY"
       ],
       "images": {
-        "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg"
+        "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/ULT01.webp"
       },
       "color": "#a2b0bd",
       "averageDailyConsumption": 300000,
@@ -37,7 +37,7 @@ planets_data =[
           "SEISMIC_ACTIVITY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/ZAR02.webp"
       },
       "color": "#e6993b",
       "averageDailyConsumption": 450000,
@@ -58,7 +58,7 @@ planets_data =[
           "MINING_ACCIDENT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/DRA03.webp"
       },
       "color": "#d9bc8e",
       "averageDailyConsumption": 380000,
@@ -79,7 +79,7 @@ planets_data =[
           "PIRACY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/ECL04.webp"
       },
       "color": "#d97557",
       "averageDailyConsumption": 150000,
@@ -100,7 +100,7 @@ planets_data =[
           "GLACIAL_SHIFT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/CRY05.webp"
       },
       "color": "#a2b0bd",
       "averageDailyConsumption": 320000,
@@ -121,7 +121,7 @@ planets_data =[
           "SUPPLY_DELAY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/AET06.webp"
       },
       "color": "#e9dec9",
       "averageDailyConsumption": 280000,
@@ -142,9 +142,9 @@ planets_data =[
           "ECONOMIC_UNCERTAINTY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg",
-          "nightUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg",
-          "cloudsUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/NOV07_base.webp",
+          "second": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/NOV07_second.webp",
+          "third": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/NOV07_third.webp"
       },
       "color": "#5e90f1",
       "averageDailyConsumption": 410000,
@@ -165,7 +165,7 @@ planets_data =[
           "ORBIT_UNSTABLE"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/JOV08.webp"
       },
       "color": "#625e5a",
       "averageDailyConsumption": 200000,
@@ -186,7 +186,7 @@ planets_data =[
           "CYBER_RISK"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/HYP09.webp"
       },
       "color": "#97c5cf",
       "averageDailyConsumption": 370000,
@@ -207,7 +207,7 @@ planets_data =[
           "PIRACY_THREAT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_neptune.jpg"
+          "base": "https://res.cloudinary.com/dd35qsdkl/image/upload/v1737976180/geb-images/NEB10.webp"
       },
       "color": "#5e90f1",
       "averageDailyConsumption": 410000,
