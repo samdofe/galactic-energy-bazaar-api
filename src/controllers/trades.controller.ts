@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import Trade from '../models/Trade';
 import { io } from '../server';
 import {formatErrorMessage} from "../utils/utils";
-import {PipelineStage} from "mongoose";
 
 export const getAllTrades = async (req: Request, res: Response) => {
     const { planetId, traderId, status, startDate, endDate, page = 1, limit = 10 } = req.query;
@@ -17,8 +16,8 @@ export const getAllTrades = async (req: Request, res: Response) => {
     // Filter by date range if provided
     if (startDate || endDate) {
         filter.createdAt = {};
-        if (startDate) filter.createdAt.$gte = new Date(startDate as string); // Greater than or equal to startDate
-        if (endDate) filter.createdAt.$lte = new Date(endDate as string);    // Less than or equal to endDate
+        if (startDate) filter.createdAt.$gte = new Date(startDate as string);
+        if (endDate) filter.createdAt.$lte = new Date(endDate as string);
     }
 
     // Parse pagination values
@@ -27,11 +26,73 @@ export const getAllTrades = async (req: Request, res: Response) => {
     const skip = (pageNumber - 1) * pageSize;
 
     try {
-        // Fetch trades with filters, pagination, and sorting
-        const trades = await Trade.find(filter)
-            .skip(skip)
-            .limit(pageSize)
-            .sort({ createdAt: -1 }); // Sort by creation date (newest first)
+        // Fetch trades with filters, pagination, sorting, and extended information
+        const trades = await Trade.aggregate([
+            { $match: filter },
+            { $sort: { createdAt: -1 } },
+            { $skip: skip },
+            { $limit: pageSize },
+            {
+                $lookup: {
+                    from: 'planets',
+                    localField: 'planetId',
+                    foreignField: 'planetId',
+                    as: 'planetInfo'
+                }
+            },
+            {
+                $lookup: {
+                    from: 'users',
+                    localField: 'traderId',
+                    foreignField: 'userId',
+                    as: 'traderInfo'
+                }
+            },
+            {
+                $project: {
+                    _id: 1,
+                    tradeId: 1,
+                    planetId: 1,
+                    traderId: 1,
+                    type: 1,
+                    status: 1,
+                    tradeDate: 1,
+                    zetaJoules: 1,
+                    pricePerUnit: 1,
+                    totalPrice: 1,
+                    createdAt: 1,
+                    updatedAt: 1,
+                    planet: {
+                        $arrayElemAt: ['$planetInfo', 0]
+                    },
+                    trader: {
+                        $arrayElemAt: ['$traderInfo', 0]
+                    }
+                }
+            },
+            {
+                $project: {
+                    'planet.planetId': 1,
+                    'planet.name': 1,
+                    'planet.color': 1,
+                    'planet.images': 1,
+                    'trader.userId': 1,
+                    'trader.username': 1,
+                    'trader.images': 1,
+                    tradeId: 1,
+                    planetId: 1,
+                    traderId: 1,
+                    type: 1,
+                    status: 1,
+                    tradeDate: 1,
+                    zetaJoules: 1,
+                    pricePerUnit: 1,
+                    totalPrice: 1,
+                    createdAt: 1,
+                    updatedAt: 1
+                }
+            }
+        ]);
 
         // Get total count for pagination metadata
         const totalTrades = await Trade.countDocuments(filter);
