@@ -184,6 +184,7 @@ export const getPlanetTradeStats = async (req: Request, res: Response) => {
                     language: '$planetInfo.language',
                     currency: '$planetInfo.currency',
                     images: '$planetInfo.images',
+                    color: '$planetInfo.color',
                     tradeVolume: '$planetInfo.tradeVolume',
                     riskFactors: '$planetInfo.riskFactors',
                     averageDailyConsumption: '$planetInfo.averageDailyConsumption',

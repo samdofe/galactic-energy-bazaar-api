@@ -16,10 +16,9 @@ planets_data =[
           "RESOURCE_SCARCITY"
       ],
       "images": {
-        "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg",
-        "nightUrl": "",
-        "cloudsUrl": ""
+        "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mercury.jpg"
       },
+      "color": "#a2b0bd",
       "averageDailyConsumption": 300000,
       "creditRating": "AAA",
       "createdAt": "2025-01-10T08:30:00Z",
@@ -38,10 +37,9 @@ planets_data =[
           "SEISMIC_ACTIVITY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg"
       },
+      "color": "#e6993b",
       "averageDailyConsumption": 450000,
       "creditRating": "A",
       "createdAt": "2025-01-09T15:00:00Z",
@@ -60,10 +58,9 @@ planets_data =[
           "MINING_ACCIDENT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_venus_atmosphere.jpg"
       },
+      "color": "#d9bc8e",
       "averageDailyConsumption": 380000,
       "creditRating": "A",
       "createdAt": "2025-01-01T11:00:00Z",
@@ -82,10 +79,9 @@ planets_data =[
           "PIRACY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_mars.jpg"
       },
+      "color": "#d97557",
       "averageDailyConsumption": 150000,
       "creditRating": "AAA",
       "createdAt": "2025-01-03T14:00:00Z",
@@ -104,10 +100,9 @@ planets_data =[
           "GLACIAL_SHIFT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_jupiter.jpg"
       },
+      "color": "#a2b0bd",
       "averageDailyConsumption": 320000,
       "creditRating": "AA",
       "createdAt": "2025-01-05T12:00:00Z",
@@ -126,10 +121,9 @@ planets_data =[
           "SUPPLY_DELAY"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn.jpg"
       },
+      "color": "#e9dec9",
       "averageDailyConsumption": 280000,
       "creditRating": "BBB",
       "createdAt": "2025-01-02T09:00:00Z",
@@ -152,6 +146,7 @@ planets_data =[
           "nightUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg",
           "cloudsUrl": "https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg"
       },
+      "color": "#5e90f1",
       "averageDailyConsumption": 410000,
       "creditRating": "A",
       "createdAt": "2025-01-04T10:30:00Z",
@@ -170,10 +165,9 @@ planets_data =[
           "ORBIT_UNSTABLE"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_saturn_ring_alpha.png"
       },
+      "color": "#625e5a",
       "averageDailyConsumption": 200000,
       "creditRating": "AAA",
       "createdAt": "2025-01-06T14:00:00Z",
@@ -192,10 +186,9 @@ planets_data =[
           "CYBER_RISK"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_uranus.jpg"
       },
+      "color": "#97c5cf",
       "averageDailyConsumption": 370000,
       "creditRating": "AA",
       "createdAt": "2025-01-07T16:00:00Z",
@@ -214,10 +207,9 @@ planets_data =[
           "PIRACY_THREAT"
       ],
       "images": {
-          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_neptune.jpg",
-          "nightUrl": "",
-          "cloudsUrl": ""
+          "dayUrl": "https://www.solarsystemscope.com/textures/download/2k_neptune.jpg"
       },
+      "color": "#5e90f1",
       "averageDailyConsumption": 410000,
       "creditRating": "A",
       "createdAt": "2025-01-08T18:00:00Z",
