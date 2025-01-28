@@ -1,0 +1,940 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.4.0",
+  "pathMappings": {},
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".env",
+        "hash": "14833728443041240255"
+      },
+      {
+        "file": "package.json",
+        "hash": "4894410414810803515"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "1594583457463533477"
+      },
+      {
+        "file": "README.md",
+        "hash": "9783058142813260970"
+      },
+      {
+        "file": ".nvmrc",
+        "hash": "8178045573189301982"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "8091678502725132047"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "4651130064815284018"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "7094108454743885079"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "nx.json",
+        "hash": "335116829309352688"
+      }
+    ],
+    "projectFileMap": {
+      "galactic-energy-bazaar-api": [
+        {
+          "file": "apps/galactic-energy-bazaar-api/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/jest.config.ts",
+          "hash": "5226725524164941405"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/project.json",
+          "hash": "13386570806976542670"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/@types/express/index.d.ts",
+          "hash": "4035384585175563575",
+          "deps": [
+            "npm:jsonwebtoken"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/i18n/dashboard/en-US.json",
+          "hash": "13421335527948811691"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/i18n/login/en-US.json",
+          "hash": "3395456608681402971"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/i18n/login/es-ES.json",
+          "hash": "11418829718099023793"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/i18n/shell/en-US.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/i18n/trades/en-US.json",
+          "hash": "1389868326933519382"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Abraham Baker.webp",
+          "hash": "1209110340889913583"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Adem Lane.webp",
+          "hash": "9669478549127025033"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Adil Floyd.webp",
+          "hash": "1280437906654631380"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Adriana O'Sullivan.webp",
+          "hash": "160263976941636944"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Alec Whitten.webp",
+          "hash": "13723856751504727202"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Alesha Barry.webp",
+          "hash": "3349973796244538889"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ali Mahdi.webp",
+          "hash": "11722763074012784438"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Aliah Lane.webp",
+          "hash": "6054066801298839068"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Alisa Hester.webp",
+          "hash": "10626049675098666788"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Amanda Lowery.webp",
+          "hash": "2955342517729049807"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Amelie Bennett.webp",
+          "hash": "13707463116180691924"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Amelie Laurent.webp",
+          "hash": "3571537478923160431"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ammar Foley.webp",
+          "hash": "18035814062068652839"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Anaiah Whitten.webp",
+          "hash": "9342750142940752446"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Andi Lane.webp",
+          "hash": "2115159948404493129"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Angelica Wallace.webp",
+          "hash": "1709797134357167381"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Anita Cruz.webp",
+          "hash": "8729902790516228583"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ashton Blackwell.webp",
+          "hash": "5127084670777181758"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ashwin Santiago.webp",
+          "hash": "10912893841058459127"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Aston Hood.webp",
+          "hash": "6206525429973593212"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ava Bentley.webp",
+          "hash": "16969903554489594681"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ava Wright.webp",
+          "hash": "14407408619605598723"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ayah Wilkinson.webp",
+          "hash": "6754241182828742291"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Aysha Becker.webp",
+          "hash": "4659412344144825427"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Bailey Richards.webp",
+          "hash": "6941343909830892118"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Bec Ferguson.webp",
+          "hash": "17634935879205520699"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Belle Woods.webp",
+          "hash": "11001941757721669469"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Benedict Doherty.webp",
+          "hash": "12851916037479658279"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Billie Wright.webp",
+          "hash": "88691571517619431"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Blake Riley.webp",
+          "hash": "13133428625274370347"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Brianna Ware.webp",
+          "hash": "9427322284224446144"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Byron Robertson.webp",
+          "hash": "16113236336711300088"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Caitlyn King.webp",
+          "hash": "2700902863078151892"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Cameron Yang.webp",
+          "hash": "2112444871487422571"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Candice Wu.webp",
+          "hash": "6370780860576927216"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Clifford Jennings.webp",
+          "hash": "18125258972447446336"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Cohen Lozano.webp",
+          "hash": "9703440892172039981"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Courtney Turner.webp",
+          "hash": "17098369094114246847"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Danyal Lester.webp",
+          "hash": "4125142688872278658"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Demi Wilkinson.webp",
+          "hash": "783187248042891564"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Dillan Nguyen.webp",
+          "hash": "2048306992880614096"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Drew Cano.webp",
+          "hash": "12396357125306969560"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Eduard Franz.webp",
+          "hash": "10362560928674863182"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Elena Owens.webp",
+          "hash": "14845841785701696816"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Elisa Nishikawa.webp",
+          "hash": "11256356158859792157"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Elsie Roy.webp",
+          "hash": "11953763673280524095"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Erica Wyatt.webp",
+          "hash": "10743643371545029400"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ethan Campbell.webp",
+          "hash": "13476600191202791703"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Ethan Valdez.webp",
+          "hash": "17617724146437466848"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Eva Bond.webp",
+          "hash": "1586953549842200484"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Eve Leroy.webp",
+          "hash": "3178580590775932390"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Fergus Gray.webp",
+          "hash": "9391818460658632145"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Fleur Cook.webp",
+          "hash": "1785700280440545081"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Florence Shaw.webp",
+          "hash": "12072315115679059034"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Frank Whitaker.webp",
+          "hash": "2264998234620916432"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Franklin Mays.webp",
+          "hash": "12257849762501602879"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Freya Browning.webp",
+          "hash": "15975565232337691572"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Genevieve Mclean.webp",
+          "hash": "12152996445577434354"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Harriet Rojas.webp",
+          "hash": "12924035243543586966"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Harry Bender.webp",
+          "hash": "6815169804362488644"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Hasan Johns.webp",
+          "hash": "10016115179762666265"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Herbert Fowler.webp",
+          "hash": "8309912303138412497"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Isla Allison.webp",
+          "hash": "839739015964177704"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Isobel Carroll.webp",
+          "hash": "5442564779579787494"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Isobel Fuller.webp",
+          "hash": "2080164518479596307"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jackson Reed.webp",
+          "hash": "495964376527430125"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jay Shepard.webp",
+          "hash": "12148850949486251438"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jaya Willis.webp",
+          "hash": "4280075231108144043"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jayden Moss.webp",
+          "hash": "4570421617015637093"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jessie Meyton.webp",
+          "hash": "12249675028310506716"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jonathan Kelly.webp",
+          "hash": "16368486677693406736"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Jordan Burgess.webp",
+          "hash": "12697891773337353756"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Joshua Wilson.webp",
+          "hash": "10666508271143778403"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Julius Vaughan.webp",
+          "hash": "7532551295613026844"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kaden Scott.webp",
+          "hash": "3851489493406354803"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kaitlin Hale.webp",
+          "hash": "9764790354426332897"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kari Rasmussen.webp",
+          "hash": "7048960986547321778"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kate Morrison.webp",
+          "hash": "2490162631740964459"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Katherine Moss.webp",
+          "hash": "11627440014105610906"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Katy Fuller.webp",
+          "hash": "14772364276445034769"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kelly Williams.webp",
+          "hash": "12210777557782640927"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kelsey Lowe.webp",
+          "hash": "11673070713634608974"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Koray Okumus.webp",
+          "hash": "669160313903205297"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Kyla Clay.webp",
+          "hash": "13280861927192569163"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lana Steiner.webp",
+          "hash": "8559667003320364927"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Levi Rocha.webp",
+          "hash": "6163715046161820588"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Leyton Fields.webp",
+          "hash": "16785919338434994036"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Liam Hood.webp",
+          "hash": "17139661134034802408"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lily-Rose Chedjou.webp",
+          "hash": "9157818959363046120"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Loki Bright.webp",
+          "hash": "18161874996512105515"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lola Sanders.webp",
+          "hash": "1368990793786859530"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lori Bryson.webp",
+          "hash": "11779898805818769215"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lucy Bond.webp",
+          "hash": "15996486885693057386"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lulu Meyers.webp",
+          "hash": "9949799838311177695"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Luqman Anthony.webp",
+          "hash": "9291055922404995777"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Lyle Kauffman.webp",
+          "hash": "829892922299823267"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Maddison Gillespie.webp",
+          "hash": "6712142636675235517"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Madeleine Pitts.webp",
+          "hash": "1555250456721462635"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Marco Gross.webp",
+          "hash": "3745037481087549716"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Marco Kelly.webp",
+          "hash": "11589167526936242139"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Marvin Robbins.webp",
+          "hash": "11260572783137177351"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Mathilde Lewis.webp",
+          "hash": "1796728362393735197"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Maxwell Tan.webp",
+          "hash": "17557859212952290904"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Mikey Lawrence.webp",
+          "hash": "3531617734860823672"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Mollie Hall.webp",
+          "hash": "4404356815383312414"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Molly Vaughan.webp",
+          "hash": "4095217944232147269"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nala Goins.webp",
+          "hash": "11723033958390832569"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Natali Craig.webp",
+          "hash": "18408614500066697411"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nic Fassbender.webp",
+          "hash": "2915783428302178660"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nicola Harris.webp",
+          "hash": "7770284494817182380"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nicolas Trevino.webp",
+          "hash": "10570692782127392796"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nicolas Wang.webp",
+          "hash": "4284194652455196044"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Nikolas Gibbons.webp",
+          "hash": "18084758189086405712"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Noah Pierre.webp",
+          "hash": "8856761089148181751"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Noel Baldwin.webp",
+          "hash": "18436022498023092532"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Olivia Rhye.webp",
+          "hash": "10302008676339615231"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Olly Schroeder.webp",
+          "hash": "3402056736991371396"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Orlando Diggs.webp",
+          "hash": "16212703313769099623"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Owen Garcia.webp",
+          "hash": "3780495952930308561"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Owen Harding.webp",
+          "hash": "15766799225218520318"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Phoenix Baker.webp",
+          "hash": "6376569275838168640"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Pippa Wilkinson.webp",
+          "hash": "14929997399579712906"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Priya Shepard.webp",
+          "hash": "9895819172242459568"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rachael Strong.webp",
+          "hash": "5709354261624205670"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rayhan Zua.webp",
+          "hash": "17825339731304707025"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rene Wells.webp",
+          "hash": "5204279810333858170"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rhea Levine.webp",
+          "hash": "15278739188981526895"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rhianna Shepard.webp",
+          "hash": "1914716011224971188"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Riley O'Moore.webp",
+          "hash": "9932696830052775428"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rory Huff.webp",
+          "hash": "9563253710052364336"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Rosalee Melvin.webp",
+          "hash": "1576858809035386720"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Sally Mason.webp",
+          "hash": "15432267507480132606"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Sarah Page.webp",
+          "hash": "9832497328726624635"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Scott Clayton.webp",
+          "hash": "14067055885515986005"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Sienna Hewitt.webp",
+          "hash": "8033328795297785180"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Sophia Perez.webp",
+          "hash": "17782409587228582578"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Stefan Sears.webp",
+          "hash": "10062357889105050580"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Youssef Roberson.webp",
+          "hash": "12489609201064114419"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zahir Mays.webp",
+          "hash": "14497732856954738594"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zahra Christensen.webp",
+          "hash": "1046444138217238886"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zaid Schwartz.webp",
+          "hash": "13909072444686447035"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zara Bush.webp",
+          "hash": "3069586559947893844"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zaynab Donnelly.webp",
+          "hash": "1975212594609692367"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/assets/images/WebP_T/Zuzanna Burke.webp",
+          "hash": "4433607087262119574"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/config/cloudinary.ts",
+          "hash": "977052150495266096",
+          "deps": [
+            "npm:cloudinary"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/config/db.ts",
+          "hash": "11883253754063479837",
+          "deps": [
+            "npm:mongoose",
+            "npm:dotenv"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/controllers/auth.controller.ts",
+          "hash": "7766845965589375082",
+          "deps": [
+            "npm:express",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/controllers/planets.controller.ts",
+          "hash": "15053416048657547369",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/controllers/trades.controller.ts",
+          "hash": "3770408883352368709",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/controllers/users.controller.ts",
+          "hash": "5204904812456669490",
+          "deps": [
+            "npm:express",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/env.d.ts",
+          "hash": "14252909916155304622"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/helpers/config.helper.ts",
+          "hash": "8142312534717577108",
+          "deps": [
+            "npm:@dotenvx/dotenvx"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/main.ts",
+          "hash": "10975737184807955337",
+          "deps": [
+            "npm:express",
+            "npm:cors"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/middleware/auth.middleware.ts",
+          "hash": "15794243732535938414",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/models/Planet.ts",
+          "hash": "17629749959650910916",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/models/Trade.ts",
+          "hash": "1059972595484302597",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/models/User.ts",
+          "hash": "9423845016722521177",
+          "deps": [
+            "npm:mongoose"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/auth.routes.ts",
+          "hash": "16516734732757847118",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/i18n.routes.ts",
+          "hash": "10368981659174937291",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/index.ts",
+          "hash": "6486428916586949980",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/planets.routes.ts",
+          "hash": "6104588452549359179",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/trades.routes.ts",
+          "hash": "2210654256252800707",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/routes/user.routes.ts",
+          "hash": "3086648461686594268",
+          "deps": [
+            "npm:express",
+            "npm:multer"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/scripts/generate-trades-collection.py",
+          "hash": "4077946699897214774"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/scripts/generate-users-collection.py",
+          "hash": "2529946441062812755"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/scripts/update-planets-collection.py",
+          "hash": "8220547600956048632"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/scripts/update-users-collection.py",
+          "hash": "7738762618332678173"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/socketio.ts",
+          "hash": "14118330320767504848",
+          "deps": [
+            "npm:socket.io"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/utils/jwt.ts",
+          "hash": "8268078748002120566",
+          "deps": [
+            "npm:jsonwebtoken"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/src/utils/utils.ts",
+          "hash": "14066736658532667897"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/tsconfig.app.json",
+          "hash": "7882563681638815931"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/tsconfig.json",
+          "hash": "3490524966360018312"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/tsconfig.spec.json",
+          "hash": "6622138706846345436"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api/webpack.config.js",
+          "hash": "3249864279039320071",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "galactic-energy-bazaar-api-e2e": [
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/eslint.config.mjs",
+          "hash": "2624537849564014525"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/jest.config.ts",
+          "hash": "13846967079037921987"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/project.json",
+          "hash": "26370590156227867"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/src/galactic-energy-bazaar-api/galactic-energy-bazaar-api.spec.ts",
+          "hash": "4579662685003779048",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/src/support/global-setup.ts",
+          "hash": "2568409276037275290"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/src/support/global-teardown.ts",
+          "hash": "5275447082211835490"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/src/support/test-setup.ts",
+          "hash": "15521797170623961900",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/tsconfig.json",
+          "hash": "15443990093475294480"
+        },
+        {
+          "file": "apps/galactic-energy-bazaar-api-e2e/tsconfig.spec.json",
+          "hash": "14954872453723519891"
+        }
+      ]
+    }
+  }
+}
