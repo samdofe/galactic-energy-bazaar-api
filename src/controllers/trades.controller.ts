@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import Trade from '../models/Trade';
+import Trade , { type ITrade } from '../models/Trade';
 import { io } from '../server';
-import {formatErrorMessage} from "../utils/utils";
+import {formatDate, formatErrorMessage, generateNextTradeId} from "../utils/utils";
 
 export const getAllTrades = async (req: Request, res: Response) => {
     const { planetId, traderId, status, dateFrom, dateTo, page = 1, limit = 10 } = req.query;
@@ -15,9 +15,11 @@ export const getAllTrades = async (req: Request, res: Response) => {
 
     // Filter by date range if provided
     if (dateFrom || dateTo) {
-        filter.createdAt = {};
-        if (dateFrom) filter.createdAt.$gte = new Date(dateFrom as string);
-        if (dateTo) filter.createdAt.$lte = new Date(dateTo as string);
+        filter.createdAtDate = {};
+        if (dateFrom) filter.createdAtDate.$gte = new Date(dateFrom as string);
+        if (dateTo) {
+            filter.createdAtDate.$lte = new Date(dateTo as string).setHours(23, 59, 59, 999);
+        }
     }
 
     // Parse pagination values
@@ -28,6 +30,21 @@ export const getAllTrades = async (req: Request, res: Response) => {
     try {
         // Fetch trades with filters, pagination, sorting, and extended information
         const trades = await Trade.aggregate([
+            {
+                $addFields: {
+                    createdAtDate: {
+                        $dateFromString: {
+                            dateString: '$createdAt',
+                            format: '%Y-%m-%dT%H:%M:%SZ', // Adjust the format to match your data
+                        },
+                    },
+                },
+            },
+/*            {
+                $match: {
+                    createdAtDate: { $gte: startDate, $lte: endDate },
+                },
+            },*/
             { $match: filter },
             { $sort: { createdAt: -1 } },
             { $skip: skip },
@@ -50,7 +67,7 @@ export const getAllTrades = async (req: Request, res: Response) => {
             },
             {
                 $project: {
-                    _id: 1,
+                    _id: 0,
                     tradeId: 1,
                     planetId: 1,
                     traderId: 1,
@@ -127,19 +144,69 @@ export const getTradeById = async (req: Request, res: Response) => {
 };
 
 export const createTrade = async (req: Request, res: Response) => {
-    const { tradeId, planetId, traderId, status, tradeDate, zetaJoules, pricePerUnit } = req.body;
+    const {  planetId, type, traderId, zetaJoules, pricePerUnit } = req.body
 
     try {
-        const totalPrice = zetaJoules * pricePerUnit;
-        const newTrade = new Trade({ tradeId, planetId, traderId, status, tradeDate, zetaJoules, pricePerUnit, totalPrice });
-        const savedTrade = await newTrade.save();
+        // Validate required fields
+        if (!planetId || !type || !traderId || zetaJoules === undefined || pricePerUnit === undefined) {
+            res.status(400).json({ error: "Missing required fields" });
+            return ;
+        }
 
-        io.emit('tradeCreated', savedTrade);
-        res.status(201).json(savedTrade);
+        // Validate data types
+        if (typeof planetId !== "string" || typeof traderId !== "string") {
+            res.status(400).json({ error: "Invalid data types for tradeId, planetId, or traderId" });
+            return ;
+        }
+
+        if (typeof zetaJoules !== "number" || typeof pricePerUnit !== "number") {
+            res.status(400).json({ error: "zetaJoules and pricePerUnit must be numbers" });
+            return ;
+        }
+
+        // Validate trade type
+        if (type !== "BUY" && type !== "SELL") {
+            res.status(400).json({ error: "Invalid trade type. Must be BUY or SELL" });
+            return ;
+        }
+
+        // Generate the next trade ID
+        const tradeId = await generateNextTradeId()
+        // Calculate total price
+        const totalPrice = Number((zetaJoules * pricePerUnit).toFixed(2))
+
+        // Get current date and format it
+        const currentDate = new Date()
+        const formattedDate = formatDate(currentDate)
+
+        // Create new trade object
+        const newTrade: ITrade = new Trade({
+            tradeId,
+            planetId,
+            traderId,
+            type,
+            status: "PENDING",
+            tradeDate: formattedDate,
+            zetaJoules,
+            pricePerUnit,
+            totalPrice,
+            createdAt: formattedDate,
+            updatedAt: formattedDate,
+        })
+
+        // Save the trade
+        const savedTrade = await newTrade.save()
+
+        // Emit socket event
+        io.emit("tradeCreated", savedTrade)
+
+        // Send response
+        res.status(201).json(savedTrade)
     } catch (error) {
-        res.status(500).json(formatErrorMessage('Failed to create trade', error));
+        console.error("Error creating trade:", error)
+        res.status(500).json(formatErrorMessage("Failed to create trade", error))
     }
-};
+}
 
 export const updateTrade = async (req: Request, res: Response) => {
     const { tradeId } = req.params;

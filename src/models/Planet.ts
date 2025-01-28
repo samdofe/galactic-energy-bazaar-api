@@ -24,7 +24,7 @@ interface IPlanet extends Document {
 
 const PlanetSchema: Schema = new Schema(
     {
-        planetId: { type: String, required: true, unique: true },
+        planetId: { type: String, required: true, unique: true, index:true },
         name: { type: String, required: true },
         description: { type: String },
         language: { type: String, required: true },

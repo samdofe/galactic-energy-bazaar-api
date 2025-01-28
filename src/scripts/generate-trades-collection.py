@@ -27,17 +27,31 @@ def random_date():
     trade_date = today - timedelta(days=days_ago)
     return trade_date
 
+# Function to generate trade ID
+def generate_trade_id(date, sequence):
+    return f"TRD-{date.strftime('%Y%m%d')}-{sequence:04d}"
+
 # Generate 1,000 trades
 trades = []
+date_sequence_map = {}  # To keep track of sequence numbers for each date
+
 for i in range(1, 1001):
     zeta_joules = random.randint(10, 5000)  # Random energy trade amount
     price_per_unit = round(random.uniform(1, 10), 2)  # Random price per unit
     total_price = round(zeta_joules * price_per_unit, 2)  # Total price calculation
     trade_date = random_date()  # Random trade date
 
+    # Generate trade ID
+    date_key = trade_date.strftime('%Y%m%d')
+    if date_key not in date_sequence_map:
+        date_sequence_map[date_key] = 1
+    else:
+        date_sequence_map[date_key] += 1
+    trade_id = generate_trade_id(trade_date, date_sequence_map[date_key])
+
     trade = {
         "_id": f"64b7f3e1c45e88a73d1{i:04d}",
-        "tradeId": f"TRD{i:04d}",
+        "tradeId": trade_id,
         "planetId": random.choice(planets),
         "traderId": random.choice(traders),
         "type": random.choice(types),
@@ -51,6 +65,9 @@ for i in range(1, 1001):
     }
     trades.append(trade)
 
+# Sort trades by tradeDate
+trades.sort(key=lambda x: x['tradeDate'])
+
 # Define the output directory and file path
 output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../ddbb-backup")
 os.makedirs(output_dir, exist_ok=True)  # Ensure the directory exists
@@ -62,3 +79,4 @@ with open(file_path, "w") as file:
     json.dump(trades, file, indent=4, default=str)
 
 print(f"Trades data saved to {file_path}")
+
