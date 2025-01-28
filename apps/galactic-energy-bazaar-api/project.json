@@ -5,6 +5,30 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/galactic-energy-bazaar-api",
+        "main": "apps/galactic-energy-bazaar-api/src/main.ts",
+        "tsConfig": "apps/galactic-energy-bazaar-api/tsconfig.app.json",
+        "assets": [
+          "apps/galactic-energy-bazaar-api/src/assets",
+          {
+            "glob": "vercel.json",
+            "input": "apps/galactic-energy-bazaar-api",
+            "output": "."
+          }
+        ]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false
+        }
+      }
+    },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
