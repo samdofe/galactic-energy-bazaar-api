@@ -35,4 +35,4 @@ jobs:
 
       # Step 5: Deploy Project Artifacts
       - name: Deploy Project Artifacts to Vercel
-        run: npx vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+        run: vercel deploy --prod --token=$VERCEL_TOKEN ./dist/apps/galactic-energy-bazaar-api
