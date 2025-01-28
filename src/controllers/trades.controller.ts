@@ -4,7 +4,7 @@ import { io } from '../server';
 import {formatErrorMessage} from "../utils/utils";
 
 export const getAllTrades = async (req: Request, res: Response) => {
-    const { planetId, traderId, status, startDate, endDate, page = 1, limit = 10 } = req.query;
+    const { planetId, traderId, status, dateFrom, dateTo, page = 1, limit = 10 } = req.query;
 
     const filter: any = {};
 
@@ -14,10 +14,10 @@ export const getAllTrades = async (req: Request, res: Response) => {
     if (status) filter.status = status;
 
     // Filter by date range if provided
-    if (startDate || endDate) {
+    if (dateFrom || dateTo) {
         filter.createdAt = {};
-        if (startDate) filter.createdAt.$gte = new Date(startDate as string);
-        if (endDate) filter.createdAt.$lte = new Date(endDate as string);
+        if (dateFrom) filter.createdAt.$gte = new Date(dateFrom as string);
+        if (dateTo) filter.createdAt.$lte = new Date(dateTo as string);
     }
 
     // Parse pagination values
@@ -114,7 +114,7 @@ export const getTradeById = async (req: Request, res: Response) => {
     const { tradeId } = req.params;
 
     try {
-        const trade = await Trade.find({tradeId});
+        const trade = await Trade.findOne({tradeId});
         if (!trade) {
             res.status(404).json(formatErrorMessage('Trade not found'));
             return;
@@ -176,7 +176,7 @@ export const deleteTrade = async (req: Request, res: Response) => {
     }
 };
 
-export const getPlanetTradeStats = async (req: Request, res: Response) => {
+export const getTradeStats = async (req: Request, res: Response) => {
     const { dateFrom, dateTo } = req.query;
 
     try {
