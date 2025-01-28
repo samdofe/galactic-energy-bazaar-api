@@ -2,14 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/apps/galactic-energy-bazaar-api/src/main.js",
-      "use": "@vercel/node"
+      "src": "dist/galactic-energy-bazaar-api/src/main.js",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "./vercel-build.sh"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/apps/galactic-energy-bazaar-api/src/main.js"
+      "dest": "dist/galactic-energy-bazaar-api/src/main.js"
     }
   ]
 }

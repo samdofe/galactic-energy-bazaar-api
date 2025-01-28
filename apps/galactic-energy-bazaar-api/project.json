@@ -22,6 +22,11 @@
             "glob": "vercel.json",
             "input": "apps/galactic-energy-bazaar-api",
             "output": "."
+          },
+          {
+            "glob": "package.json",
+            "input": ".",
+            "output": "."
           }
         ]
       },
