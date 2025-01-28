@@ -20,7 +20,7 @@
           },
           {
             "glob": "vercel.json",
-            "input": ".",
+            "input": "apps/galactic-energy-bazaar-api",
             "output": "."
           }
         ]
