@@ -16,9 +16,10 @@ import {connectDB} from "./config/db";
 connectDB();
 
 const {port: PORT} = config;
-const allowOrigins = process.env.ALLOWED_ORIGINS.split(',');
-/*  ? process.env.ALLOWED_ORIGINS.split(',')
+const allowOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',')
   : [
+    '*',
     'http://localhost:4200',
     'http://localhost:4201',
     'http://localhost:4202',
@@ -27,7 +28,7 @@ const allowOrigins = process.env.ALLOWED_ORIGINS.split(',');
     'http://localhost:8081',
     'http://localhost:8082',
     'http://localhost:8083'
-  ];*/
+  ];
 const corsOptions = {
   origin: allowOrigins, // Allow requests only from this origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

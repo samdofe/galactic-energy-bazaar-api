@@ -13,7 +13,11 @@
         "main": "apps/galactic-energy-bazaar-api/src/main.ts",
         "tsConfig": "apps/galactic-energy-bazaar-api/tsconfig.app.json",
         "assets": [
-          "apps/galactic-energy-bazaar-api/src/assets",
+          {
+            "glob": "**/*",
+            "input": "apps/galactic-energy-bazaar-api/src/assets",
+            "output": "assets"
+          },
           {
             "glob": "vercel.json",
             "input": "apps/galactic-energy-bazaar-api",
