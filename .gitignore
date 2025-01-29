@@ -3,7 +3,8 @@
 # compiled output
 dist
 tmp
-out-tsc
+temp
+/out-tsc
 
 # dependencies
 node_modules
@@ -30,7 +31,6 @@ node_modules
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
@@ -38,7 +38,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.nx/cache
-.nx/workspace-data
-
+#Environment variables
 .env.*
+
+#Environnment variables
